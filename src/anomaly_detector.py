@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
+from pathlib import Path
 import duckdb
 
 
@@ -24,8 +25,13 @@ class RetailAnomalyDetector:
         ]
         self.df = None
 
-    def load_data(self, data_path='data/sample/'):
+    def load_data(self, data_path=None):
         """Load and merge all Olist datasets using DuckDB"""
+        if data_path is None:
+            # Get absolute path relative to this file's location
+            project_root = Path(__file__).parent.parent
+            data_path = str(project_root / 'data' / 'sample') + '/'
+
         conn = duckdb.connect()
 
         query = f"""
