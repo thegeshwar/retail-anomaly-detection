@@ -24,7 +24,7 @@ class RetailAnomalyDetector:
         ]
         self.df = None
 
-    def load_data(self, data_path='data/raw/'):
+    def load_data(self, data_path='data/sample/'):
         """Load and merge all Olist datasets using DuckDB"""
         conn = duckdb.connect()
 

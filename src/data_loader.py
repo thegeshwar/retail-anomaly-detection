@@ -22,7 +22,7 @@ class OlistDataLoader:
         'olist_geolocation_dataset.csv'
     ]
 
-    def __init__(self, data_path: str = 'data/raw/'):
+    def __init__(self, data_path: str = 'data/sample/'):
         self.data_path = Path(data_path)
         self.conn = duckdb.connect()
         self.tables = {}
